@@ -7,13 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{80F00D9A-D6F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "University.Service", "University.Service", "{B35846BC-6A37-4EDB-ADDE-6E097EF2B115}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Api", "Microservice_exam_project_6_month\src\University.Service\University.Api\University.Api.csproj", "{C5486703-ECC3-4E83-9B35-36F95FB94575}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Api", "Microservice_exam_project_6_month\src\University.Service\University.Api\University.Api.csproj", "{C5486703-ECC3-4E83-9B35-36F95FB94575}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Application", "Microservice_exam_project_6_month\src\University.Service\University.Application\University.Application.csproj", "{E1977407-66B8-45CA-AEFE-6DB21EAC7DC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Application", "Microservice_exam_project_6_month\src\University.Service\University.Application\University.Application.csproj", "{E1977407-66B8-45CA-AEFE-6DB21EAC7DC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Domain", "Microservice_exam_project_6_month\src\University.Service\University.Domain\University.Domain.csproj", "{A6E80539-4723-4504-9BE2-4F3BB319A379}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Domain", "Microservice_exam_project_6_month\src\University.Service\University.Domain\University.Domain.csproj", "{A6E80539-4723-4504-9BE2-4F3BB319A379}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Infrastructure", "Microservice_exam_project_6_month\src\University.Service\University.Infrastructure\University.Infrastructure.csproj", "{9EF486AA-255D-475C-9EBD-772CA3917EC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Infrastructure", "Microservice_exam_project_6_month\src\University.Service\University.Infrastructure\University.Infrastructure.csproj", "{9EF486AA-255D-475C-9EBD-772CA3917EC3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservice.Getaway", "Microservice.Getaway", "{149DD6BF-76E2-40A6-A3EB-866EA3250A84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Getaway.Api", "Microservice_exam_project_6_month\src\Microservice.Getaway\Microservice.Getaway.Api\Microservice.Getaway.Api.csproj", "{70882831-C4EA-4E75-9207-E312FE9F8128}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,10 @@ Global
 		{9EF486AA-255D-475C-9EBD-772CA3917EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EF486AA-255D-475C-9EBD-772CA3917EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EF486AA-255D-475C-9EBD-772CA3917EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70882831-C4EA-4E75-9207-E312FE9F8128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70882831-C4EA-4E75-9207-E312FE9F8128}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70882831-C4EA-4E75-9207-E312FE9F8128}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70882831-C4EA-4E75-9207-E312FE9F8128}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +55,8 @@ Global
 		{E1977407-66B8-45CA-AEFE-6DB21EAC7DC1} = {B35846BC-6A37-4EDB-ADDE-6E097EF2B115}
 		{A6E80539-4723-4504-9BE2-4F3BB319A379} = {B35846BC-6A37-4EDB-ADDE-6E097EF2B115}
 		{9EF486AA-255D-475C-9EBD-772CA3917EC3} = {B35846BC-6A37-4EDB-ADDE-6E097EF2B115}
+		{149DD6BF-76E2-40A6-A3EB-866EA3250A84} = {80F00D9A-D6F8-44A3-99E4-7A0E39641BCE}
+		{70882831-C4EA-4E75-9207-E312FE9F8128} = {149DD6BF-76E2-40A6-A3EB-866EA3250A84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {68722688-C49E-4181-9B37-E769AEA190B3}
