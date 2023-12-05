@@ -3,8 +3,9 @@ using University.Domain.Enums;
 
 namespace University.Application.UseCases.Students.Commands
 {
-    public class CreateStudentCommand : IRequest
+    public class UpdateStudentCommand : IRequest<bool>
     {
+        public int StudentId { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string Email { get; set; }
