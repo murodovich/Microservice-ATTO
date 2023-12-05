@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 
 namespace University.Application.UseCases.TaskGrads.Commands
 {
@@ -6,6 +7,6 @@ namespace University.Application.UseCases.TaskGrads.Commands
     {
         public int DedlineId { get; set; }
         public int StudentId { get; set; }
-        public string FilePath { get; set; }
+        public IFormFile FilePath { get; set; }
     }
 }
