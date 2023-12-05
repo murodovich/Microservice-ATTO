@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using University.Application.Absreactions;
-using University.Domain.Entities.Models;
+using University.Domain.Models;
 
 namespace University.Infrastructure.Persitance
 {
