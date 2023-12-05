@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using University.Application.Absreactions;
 using University.Application.UseCases.Students.Commands;
-using University.Domain.Entities.Models;
+using University.Domain.Models;
 
 namespace University.Application.UseCases.Students.Handlers
 {
@@ -23,9 +23,14 @@ namespace University.Application.UseCases.Students.Handlers
                 Email = request.Email,
                 Phone = request.Phone,
                 Age = request.Age,
-               
                 Country = request.Country,
-                City = request.City
+                City = request.City,
+                Gender = request.Gender,
+                GroupId = request.GroupId,
+                Role = request.Role,
+                CreatedAt = request.CreatedAt,
+                UpdatedAt = request.UpdatedAt,
+
             };
 
             await _dbContext.students.AddAsync(student);
