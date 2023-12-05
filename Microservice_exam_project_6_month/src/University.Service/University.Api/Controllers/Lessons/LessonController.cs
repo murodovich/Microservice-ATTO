@@ -47,6 +47,12 @@ namespace University.Api.Controllers.Lessons
             await _mediator.Send(result);
             return Ok("Updated Lesson");
         }
+        [HttpGet]
+        public async ValueTask<IActionResult> GetByIdLesson(int id)
+        {
+            var result = await _mediator.Send(new GetByIdLessonQuery() { Id = id });
+            return Ok(result);
+        }
         [HttpDelete]
         public async ValueTask<IActionResult> DeleteLesson(DeleteLessonCommand command)
         {
