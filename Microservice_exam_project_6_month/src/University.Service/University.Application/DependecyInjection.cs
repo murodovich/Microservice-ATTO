@@ -9,8 +9,8 @@ namespace University.Application
         public static IServiceCollection AddAplication(this IServiceCollection services)
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
-
             return services;
         }
+
     }
 }
