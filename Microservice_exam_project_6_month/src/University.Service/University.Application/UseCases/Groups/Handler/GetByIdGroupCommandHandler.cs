@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using University.Application.Absreactions;
 using University.Application.UseCases.Groups.Commands;
+using University.Domain.Exceptions.Groups;
 using University.Domain.Models;
 
 namespace University.Application.UseCases.Groups.Handler
@@ -17,7 +18,8 @@ namespace University.Application.UseCases.Groups.Handler
 
         public async Task<Group> Handle(GetByIdGroupCommand request, CancellationToken cancellationToken)
         {
-            Group group = await _dbContext.groups.FirstOrDefaultAsync(x => x.GroupId == request.Id);
+            var group = await _dbContext.groups.FirstOrDefaultAsync(x => x.GroupId == request.Id);
+            if (group == null) throw new GroupsNotFoundException();
             return group;
         }
     }
