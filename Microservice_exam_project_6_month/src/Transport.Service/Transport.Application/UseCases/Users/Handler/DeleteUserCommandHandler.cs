@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Transport.Application.Absreactions;
 using Transport.Application.UseCases.Users.Commonds;
+using Transport.Domain.Exceptions.Users;
 
 namespace Transport.Application.UseCases.Users.Handler
 {
@@ -18,7 +19,7 @@ namespace Transport.Application.UseCases.Users.Handler
         {
             var result = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == request.Id);
 
-            if (result == null) { return false; }
+            if (result == null) throw new UserNotFoundException();
 
             _dbContext.Users.Remove(result);
             var res = await _dbContext.SaveChangesAsync(cancellationToken);
