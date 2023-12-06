@@ -24,20 +24,8 @@ namespace University.Api.Controllers.Teachers
             return Ok(result);
         }
         [HttpPost]
-        public async ValueTask<IActionResult> CreateTechar(TeacherDto techar)
+        public async ValueTask<IActionResult> CreateTechar(CreateTeacherCommand teacher)
         {
-            var teacher = new CreateTeacherCommand()
-            {
-                FirstName = techar.FirstName,
-                LastName = techar.LastName,
-                FatherName = techar.FatherName,
-                Address = techar.Address,
-                Role = techar.Role,
-                Direction = techar.Direction,
-                Gender = techar.Gender,
-                CreatedAt = techar.CreatedAt,
-            };
-
             await _mediator.Send(teacher);
             return Ok("Created Teacher");
         }
@@ -53,23 +41,9 @@ namespace University.Api.Controllers.Teachers
 
         }
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateTeacher(int Id, TeacherDto teacher)
+        public async ValueTask<IActionResult> UpdateTeacher(UpdateTeacherCommand command)
         {
-            var result = new UpdateTeacherCommand()
-            {
-                Id = Id,
-                FirstName = teacher.FirstName,
-                LastName = teacher.LastName,
-                FatherName = teacher.FatherName,
-                Address = teacher.Address,
-                Role = teacher.Role,
-                Direction = teacher.Direction,
-                Gender = teacher.Gender,
-                UpdatedAt = teacher.UpdatedAt
-
-            };
-
-            await _mediator.Send(result);
+            await _mediator.Send(command);
             return Ok("Teacher Updated");
         }
         [HttpDelete]
