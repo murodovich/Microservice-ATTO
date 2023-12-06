@@ -12,9 +12,17 @@ namespace Transport.Application.UseCases.Transports.Handler
         {
             _dbContext = dbContext;
         }
-        public Task<bool> Handle(CreateTransportCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(CreateTransportCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var result = new Domain.Entities.Transports.Transport()
+            {
+                TransportName = request.TransportName,
+                Capacity = request.Capacity,
+                TransportType = request.TransportType,
+            };
+            await _dbContext.transports.AddAsync(result);
+            var res = await _dbContext.SaveChangesAsync(cancellationToken);
+            return res > 0;
         }
     }
 }
