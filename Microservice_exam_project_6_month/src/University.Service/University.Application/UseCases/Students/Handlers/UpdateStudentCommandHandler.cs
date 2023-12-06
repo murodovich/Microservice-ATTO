@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using University.Application.Absreactions;
+using University.Application.PaswordHash;
 using University.Application.UseCases.Students.Commands;
 using University.Domain.Exceptions.Students;
 
@@ -31,6 +32,8 @@ namespace University.Application.UseCases.Students.Handlers
             student.GroupId = request.GroupId;
             student.Role = request.Role;
             student.UpdatedAt = request.UpdatedAt;
+            student.Password = Hash512.ComputeSHA512HashFromString(request.Password);
+            student.UserName = request.UserName;
 
             _dbContext.students.Update(student);
             var result = await _dbContext.SaveChangesAsync(cancellationToken);
