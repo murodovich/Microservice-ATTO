@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using University.Application.Absreactions;
+using University.Application.PaswordHash;
 using University.Application.UseCases.Students.Commands;
 using University.Domain.Models;
 
@@ -24,12 +25,13 @@ namespace University.Application.UseCases.Students.Handlers
                 Phone = request.Phone,
                 Age = request.Age,
                 Country = request.Country,
+                Password = Hash512.ComputeSHA512HashFromString(request.Password),
+                UserName = request.UserName,
                 City = request.City,
                 Gender = request.Gender,
                 GroupId = request.GroupId,
                 Role = request.Role,
                 CreatedAt = request.CreatedAt,
-                UpdatedAt = request.UpdatedAt,
 
             };
 
