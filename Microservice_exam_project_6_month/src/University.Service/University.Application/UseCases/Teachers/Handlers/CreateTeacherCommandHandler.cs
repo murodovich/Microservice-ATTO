@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using University.Application.Absreactions;
+using University.Application.PaswordHash;
 using University.Application.UseCases.Teachers.Commands;
 using University.Domain.Models;
 
@@ -25,6 +26,8 @@ namespace University.Application.UseCases.Teachers.Handlers
             teacher.Direction = request.Direction;
             teacher.Role = request.Role;
             teacher.CreatedAt = request.CreatedAt;
+            teacher.Password = Hash512.ComputeSHA512HashFromString(request.Password);
+            teacher.UserName = request.UserName;
 
 
             await _dbContext.teachers.AddAsync(teacher);
