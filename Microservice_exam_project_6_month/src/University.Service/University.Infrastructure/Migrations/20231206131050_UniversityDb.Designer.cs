@@ -12,8 +12,8 @@ using University.Infrastructure.Persitance;
 namespace University.Infrastructure.Migrations
 {
     [DbContext(typeof(UniversitetDBContext))]
-    [Migration("20231204232927_univer")]
-    partial class univer
+    [Migration("20231206131050_UniversityDb")]
+    partial class UniversityDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,7 +48,7 @@ namespace University.Infrastructure.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("attendances");
+                    b.ToTable("Attendances", (string)null);
                 });
 
             modelBuilder.Entity("University.Domain.Models.Course", b =>
@@ -61,7 +61,8 @@ namespace University.Infrastructure.Migrations
 
                     b.Property<string>("CourseName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<int>("SubjectId")
                         .HasColumnType("int");
@@ -75,7 +76,7 @@ namespace University.Infrastructure.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("courses");
+                    b.ToTable("Courses", (string)null);
                 });
 
             modelBuilder.Entity("University.Domain.Models.CourseGroup", b =>
@@ -98,7 +99,7 @@ namespace University.Infrastructure.Migrations
 
                     b.HasIndex("GroupId");
 
-                    b.ToTable("coursegroups");
+                    b.ToTable("CourseGroups", (string)null);
                 });
 
             modelBuilder.Entity("University.Domain.Models.Dedline", b =>
@@ -123,13 +124,15 @@ namespace University.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.HasKey("DedlineId");
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("dededlines");
+                    b.ToTable("Dedlines", (string)null);
                 });
 
             modelBuilder.Entity("University.Domain.Models.Group", b =>
@@ -145,11 +148,12 @@ namespace University.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("GroupId");
 
-                    b.ToTable("groups");
+                    b.ToTable("Groups", (string)null);
                 });
 
             modelBuilder.Entity("University.Domain.Models.Lesson", b =>
@@ -168,13 +172,14 @@ namespace University.Infrastructure.Migrations
 
                     b.Property<string>("LessonName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("LessonId");
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("lessons");
+                    b.ToTable("Lessons", (string)null);
                 });
 
             modelBuilder.Entity("University.Domain.Models.Student", b =>
@@ -190,22 +195,28 @@ namespace University.Infrastructure.Migrations
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Country")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .IsUnicode(true)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("Gender")
                         .HasColumnType("int");
@@ -215,17 +226,30 @@ namespace University.Infrastructure.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .IsUnicode(true)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("Role")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.HasKey("StudentId");
 
@@ -244,11 +268,12 @@ namespace University.Infrastructure.Migrations
 
                     b.Property<string>("SubjectName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("SubjectId");
 
-                    b.ToTable("subjects");
+                    b.ToTable("Subjects", (string)null);
                 });
 
             modelBuilder.Entity("University.Domain.Models.TaskGrade", b =>
@@ -275,7 +300,7 @@ namespace University.Infrastructure.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("tasks");
+                    b.ToTable("TaskGrades", (string)null);
                 });
 
             modelBuilder.Entity("University.Domain.Models.Teacher", b =>
@@ -290,12 +315,15 @@ namespace University.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Direction")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("FatherName")
                         .IsRequired()
@@ -305,22 +333,31 @@ namespace University.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Role")
-                        .HasColumnType("int");
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(8)
+                        .IsUnicode(true)
+                        .HasColumnType("nvarchar(8)");
 
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TeacherId");
 
-                    b.ToTable("teachers");
+                    b.ToTable("Teachers", (string)null);
                 });
 
             modelBuilder.Entity("University.Domain.Models.Attendance", b =>
@@ -366,13 +403,13 @@ namespace University.Infrastructure.Migrations
                     b.HasOne("University.Domain.Models.Course", "Course")
                         .WithMany("Courses")
                         .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("University.Domain.Models.Group", "Group")
                         .WithMany("Courses")
                         .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Course");
