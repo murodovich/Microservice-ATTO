@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using University.Api.Dtos;
 using University.Application.UseCases.Students.Commands;
 using University.Application.UseCases.Students.Queries;
 
@@ -18,24 +17,8 @@ namespace University.Api.Controllers.Students
         }
 
         [HttpPost]
-        public async ValueTask<IActionResult> CreateStudent(StudentDto studentDto)
+        public async ValueTask<IActionResult> CreateStudent(CreateStudentCommand command)
         {
-            var command = new CreateStudentCommand()
-            {
-                FirstName = studentDto.FirstName,
-                LastName = studentDto.LastName,
-                Email = studentDto.Email,
-                Phone = studentDto.Phone,
-                Age = studentDto.Age,
-                Country = studentDto.Country,
-                City = studentDto.City,
-                Gender = studentDto.Gender,
-                GroupId = studentDto.GroupId,
-                Role = studentDto.Role,
-                CreatedAt = studentDto.CreatedAt,
-                UpdatedAt = studentDto.UpdatedAt,
-            };
-
             await _mediator.Send(command);
             return Ok("Created");
 
@@ -48,25 +31,8 @@ namespace University.Api.Controllers.Students
         }
 
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateStudent(int id, StudentDto studentDto)
+        public async ValueTask<IActionResult> UpdateStudent(UpdateStudentCommand command)
         {
-            var command = new UpdateStudentCommand()
-            {
-                StudentId = id,
-                FirstName = studentDto.FirstName,
-                LastName = studentDto.LastName,
-                Email = studentDto.Email,
-                Phone = studentDto.Phone,
-                Age = studentDto.Age,
-                Country = studentDto.Country,
-                City = studentDto.City,
-                Gender = studentDto.Gender,
-                GroupId = studentDto.GroupId,
-                Role = studentDto.Role,
-                CreatedAt = studentDto.CreatedAt,
-                UpdatedAt = studentDto.UpdatedAt,
-            };
-
             await _mediator.Send(command);
             return Ok("Updated");
         }
