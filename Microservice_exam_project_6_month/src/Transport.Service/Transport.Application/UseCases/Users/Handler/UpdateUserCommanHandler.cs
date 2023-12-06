@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Transport.Application.Absreactions;
 using Transport.Application.UseCases.Users.Commonds;
+using Transport.Domain.Exceptions.Users;
 
 namespace Transport.Application.UseCases.Users.Handler
 {
@@ -17,6 +18,7 @@ namespace Transport.Application.UseCases.Users.Handler
         public async Task<bool> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
             var result = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == request.Id);
+            if (result == null) throw new UserNotFoundException();
 
             result.UserName = request.UserName;
             result.Password = request.Password;
