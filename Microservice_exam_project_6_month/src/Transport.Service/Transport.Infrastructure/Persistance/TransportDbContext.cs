@@ -5,6 +5,12 @@ using Transport.Domain.Entities.Payments;
 using Transport.Domain.Entities.Routeis;
 using Transport.Domain.Entities.Schedules;
 using Transport.Domain.Entities.Users;
+using Transport.Infrastructure.Configuration.Drivers;
+using Transport.Infrastructure.Configuration.Payments;
+using Transport.Infrastructure.Configuration.Routes;
+using Transport.Infrastructure.Configuration.Scheldules;
+using Transport.Infrastructure.Configuration.Transports;
+using Transport.Infrastructure.Configuration.Users;
 
 namespace Transport.Infrastructure.Persistance
 {
@@ -21,6 +27,18 @@ namespace Transport.Infrastructure.Persistance
         public DbSet<Payment> payments { get; set; }
         public DbSet<Schedule> schedules { get; set; }
         public DbSet<Domain.Entities.Transports.Transport> transports { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new PaymentConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new TransportConfiguration());
+            modelBuilder.ApplyConfiguration(new DriverConfiguration());
+            modelBuilder.ApplyConfiguration(new SchelduleConfiguration());
+            modelBuilder.ApplyConfiguration(new RouteConfiguration());
+        }
 
     }
 }
