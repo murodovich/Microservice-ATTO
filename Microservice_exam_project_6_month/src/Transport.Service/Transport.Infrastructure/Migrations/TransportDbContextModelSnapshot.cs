@@ -32,7 +32,8 @@ namespace Transport.Infrastructure.Migrations
 
                     b.Property<string>("DriveName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<int>("LicenseNumber")
                         .HasColumnType("int");
@@ -44,7 +45,7 @@ namespace Transport.Infrastructure.Migrations
 
                     b.HasIndex("TransportId");
 
-                    b.ToTable("drivers");
+                    b.ToTable("Drivers", (string)null);
                 });
 
             modelBuilder.Entity("Transport.Domain.Entities.Payments.Payment", b =>
@@ -73,7 +74,7 @@ namespace Transport.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("payments");
+                    b.ToTable("Payments", (string)null);
                 });
 
             modelBuilder.Entity("Transport.Domain.Entities.Routeis.Route", b =>
@@ -86,19 +87,22 @@ namespace Transport.Infrastructure.Migrations
 
                     b.Property<string>("EndLocation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("RouteName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("StartLocation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("routes");
+                    b.ToTable("Routes", (string)null);
                 });
 
             modelBuilder.Entity("Transport.Domain.Entities.Schedules.Schedule", b =>
@@ -124,7 +128,7 @@ namespace Transport.Infrastructure.Migrations
 
                     b.HasIndex("TransportId");
 
-                    b.ToTable("schedules");
+                    b.ToTable("Schedules", (string)null);
                 });
 
             modelBuilder.Entity("Transport.Domain.Entities.Transports.Transport", b =>
@@ -140,15 +144,17 @@ namespace Transport.Infrastructure.Migrations
 
                     b.Property<string>("TransportName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("TransportType")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("transports");
+                    b.ToTable("Transports", (string)null);
                 });
 
             modelBuilder.Entity("Transport.Domain.Entities.Users.User", b =>
@@ -164,37 +170,44 @@ namespace Transport.Infrastructure.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
-                    b.Property<int>("Role")
-                        .HasColumnType("int");
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("Transport.Domain.Entities.Drivers.Driver", b =>
@@ -202,7 +215,7 @@ namespace Transport.Infrastructure.Migrations
                     b.HasOne("Transport.Domain.Entities.Transports.Transport", "Transport")
                         .WithMany("drivers")
                         .HasForeignKey("TransportId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Transport");
@@ -219,7 +232,7 @@ namespace Transport.Infrastructure.Migrations
                     b.HasOne("Transport.Domain.Entities.Users.User", "User")
                         .WithMany("Payment")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -230,13 +243,13 @@ namespace Transport.Infrastructure.Migrations
                     b.HasOne("Transport.Domain.Entities.Routeis.Route", "Route")
                         .WithMany("Schedules")
                         .HasForeignKey("RouteId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Transport.Domain.Entities.Transports.Transport", "Transport")
                         .WithMany("schedules")
                         .HasForeignKey("TransportId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Route");
