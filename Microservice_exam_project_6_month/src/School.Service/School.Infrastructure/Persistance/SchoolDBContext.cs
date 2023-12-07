@@ -13,6 +13,7 @@ namespace School.Infrastructure.Persistance
         public SchoolDBContext(DbContextOptions<SchoolDBContext> options)
             : base(options)
         {
+            Database.Migrate();
 
         }
 
