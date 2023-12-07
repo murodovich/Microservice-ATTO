@@ -12,7 +12,7 @@ namespace Transport.Infrastructure
         {
             services.AddDbContext<ITransportDBContext, TransportDbContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("DefoultConnectionstring"));
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
 
             return services;
