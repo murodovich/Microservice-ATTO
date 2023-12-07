@@ -4,6 +4,7 @@
     {
         Admin =1,
         Student ,
-        SuperAdmin
+        SuperAdmin,
+        Teacher
     }
 }
