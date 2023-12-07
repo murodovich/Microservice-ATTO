@@ -12,7 +12,7 @@ namespace School.Infrastructure
         {
             services.AddDbContext<ISchoolDbContext,SchoolDBContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("DefoultConnectionstring"));
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
 
             return services;
