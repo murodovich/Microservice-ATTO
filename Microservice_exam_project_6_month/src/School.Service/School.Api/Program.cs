@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using School.Application;
 using School.Application.Absreactions;
+using School.Infrastructure;
 using School.Infrastructure.Persistance;
 
 class Program
@@ -9,12 +11,14 @@ class Program
 
         var builder = WebApplication.CreateBuilder(args);
 
+        builder.Services.AddInfrastructure(builder.Configuration);
+        builder.Services.AddApplication();
+      
 
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
-        //builder.Services.AddInfrastructure
 
         builder.Services.AddDbContext<ISchoolDbContext, SchoolDBContext>(options =>
         {
