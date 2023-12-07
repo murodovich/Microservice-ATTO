@@ -1,0 +1,32 @@
+version: '3.4'
+
+
+
+services:
+  sqldata:
+    image:  mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - SA_PASSWORD=sarvar#2022
+      - ACCEPT_EULA=Y
+    ports:
+      - 8080:80
+
+  school.api:
+    image: ${DOCKER_REGISTRY-}schoolapi
+    build:
+      context: .
+      dockerfile: Microservice_exam_project_6_month/src/School.Service/School.Api/Dockerfile
+
+  transport.api:
+    image: ${DOCKER_REGISTRY-}transportapi
+    build:
+      context: .
+      dockerfile: Microservice_exam_project_6_month/src/Transport.Service/Transport.Api/Dockerfile
+
+
+  university.api:
+    image: ${DOCKER_REGISTRY-}universityapi
+    build:
+      context: .
+      dockerfile: Microservice_exam_project_6_month/src/University.Service/University.Api/Dockerfile
+
