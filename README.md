@@ -1,5 +1,8 @@
 # Microservice-Exam
 
+## University https://drawsql.app/teams/sarvar-4/diagrams/university
+
+
 ## Jamoat Transport https://drawsql.app/teams/sarvar-4/diagrams/jamoat-transporti
 
 ![image](https://github.com/murodovich/Microservice-Exam/assets/123171146/12a9a046-63cb-484a-8284-1f291c766ab6)
