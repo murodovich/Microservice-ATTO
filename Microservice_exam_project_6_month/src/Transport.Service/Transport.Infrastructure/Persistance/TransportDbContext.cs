@@ -19,6 +19,7 @@ namespace Transport.Infrastructure.Persistance
         public TransportDbContext(DbContextOptions<TransportDbContext> options) 
             : base(options)
         {
+            Database.Migrate();
             
         }
         public DbSet<User> Users { get; set; }
