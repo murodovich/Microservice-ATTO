@@ -12,6 +12,7 @@ namespace School.Domain.Entities.Students
         public string Email { get; set; }
         public int Age { get; set; }
         public Role Role { get; set; }
+        public Gender Gender { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
