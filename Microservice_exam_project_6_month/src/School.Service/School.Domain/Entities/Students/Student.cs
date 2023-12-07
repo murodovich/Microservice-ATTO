@@ -11,9 +11,10 @@ namespace School.Domain.Entities.Students
         public string Password { get; set; }
         public string Email { get; set; }
         public int Age { get; set; }
-        
         public Role Role { get; set; }
         public DateTime BirthDate { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
         public ICollection<StudentCourse> StudentCourses { get; set; }
     }
 }
