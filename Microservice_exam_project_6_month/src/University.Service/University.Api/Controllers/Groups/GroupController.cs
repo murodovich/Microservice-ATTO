@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using University.Api.Dtos;
 using University.Application.UseCases.Groups.Commands;
 using University.Application.UseCases.Groups.Queries;
 
@@ -24,35 +23,22 @@ namespace University.Api.Controllers.Groups
             return Ok(result);
         }
         [HttpPost]
-        public async ValueTask<IActionResult> CreateGroup(GroupDto groupDto)
+        public async ValueTask<IActionResult> CreateGroup([FromForm] CreateGroupCommand group)
         {
-            var group = new CreateGroupCommand()
-            {
-                Name = groupDto.Name,
-                Lavel = groupDto.Level
-            };
             await _mediator.Send(group);
             return Ok("Created Group");
         }
         [HttpGet]
-        public async ValueTask<IActionResult> GetByIdGroup(int id)
+        public async ValueTask<IActionResult> GetByIdGroup([FromForm] GetByIdGroupCommand command)
         {
-            var group = new GetByIdGroupCommand()
-            {
-                Id = id
-            };
-            var result = await _mediator.Send(group);
+
+            var result = await _mediator.Send(command);
             return Ok(result);
         }
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateGroup(int Id, GroupDto groupDto)
+        public async ValueTask<IActionResult> UpdateGroup([FromForm] UpdateGroupCommand group)
         {
-            var group = new UpdateGroupCommand()
-            {
-                GroupId = Id,
-                Name = groupDto.Name,
-                Lavel = groupDto.Level
-            };
+
             await _mediator.Send(group);
             return Ok("Updated group");
         }
