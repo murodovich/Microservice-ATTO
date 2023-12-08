@@ -1,5 +1,14 @@
 # Microservice-Exam
 
+## Bu Mixroservice 3 ta projectdan iborat:
+
+
+## University
+
+## School
+
+## Jamoat Transport 
+
 ## University https://drawsql.app/teams/sarvar-4/diagrams/university
 
 
