@@ -3,11 +3,11 @@
 ## Bu Mixroservice 3 ta projectdan iborat:
 
 
-## University
+## 🎓University
 
-## School
+## 🏫School
 
-## Jamoat Transport 
+## 🚇Jamoat Transport 
 
 ## University https://drawsql.app/teams/sarvar-4/diagrams/university
 
