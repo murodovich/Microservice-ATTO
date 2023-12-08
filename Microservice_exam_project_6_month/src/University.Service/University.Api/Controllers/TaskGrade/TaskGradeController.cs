@@ -29,7 +29,7 @@ namespace University.Api.Controllers.TaskGrade
             return Ok(res);
         }
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateTaskGrade(UpdateTaskGradeCommand updateTaskGradeCommand)
+        public async ValueTask<IActionResult> UpdateTaskGrade([FromForm]UpdateTaskGradeCommand updateTaskGradeCommand)
         {
             await _mediator.Send(updateTaskGradeCommand);
             return Ok("Updated");
