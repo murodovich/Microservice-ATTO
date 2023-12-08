@@ -24,15 +24,8 @@ namespace University.Api.Controllers.Courses
             return Ok(result);
         }
         [HttpPost]
-        public async ValueTask<IActionResult> CreateCourse(CourseDto course)
+        public async ValueTask<IActionResult> CreateCourse([FromForm]CreateCourseCommand courses)
         {
-            var courses = new CreateCourseCommand()
-            {
-                CourseName = course.CourseName,
-                SubjectId = course.SubjectId,
-                TeacherId = course.TeacherId,
-            };
-
             await _mediator.Send(courses);
             return Ok("Created Course");
 
@@ -48,15 +41,8 @@ namespace University.Api.Controllers.Courses
             return Ok(result);
         }
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateCourse(int id, CourseDto course)
-        {
-            var result = new UpdateCourseCommand()
-            {
-                Id = id,
-                CourseName = course.CourseName,
-                SubjectId = course.SubjectId,
-                TeacherId = course.TeacherId,
-            };
+        public async ValueTask<IActionResult> UpdateCourse([FromForm] UpdateCourseCommand result)
+        {            
             await _mediator.Send(result);
             return Ok("Course Updated");
         }
