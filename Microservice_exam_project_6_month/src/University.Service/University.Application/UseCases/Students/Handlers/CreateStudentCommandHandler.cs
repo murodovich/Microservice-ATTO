@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.Extensions.Caching.Memory;
 using University.Application.Absreactions;
 using University.Application.PaswordHash;
 using University.Application.UseCases.Students.Commands;
@@ -9,10 +10,12 @@ namespace University.Application.UseCases.Students.Handlers
     public class CreateStudentCommandHandler : AsyncRequestHandler<CreateStudentCommand>
     {
         private readonly IUniversityDBContext _dbContext;
+        
 
         public CreateStudentCommandHandler(IUniversityDBContext dbContext)
         {
             _dbContext = dbContext;
+           
         }
 
         protected override async Task Handle(CreateStudentCommand request, CancellationToken cancellationToken)
@@ -31,7 +34,7 @@ namespace University.Application.UseCases.Students.Handlers
                 Gender = request.Gender,
                 GroupId = request.GroupId,
                 Role = request.Role,
-                CreatedAt = request.CreatedAt,
+                CreatedAt = DateTime.Now
 
             };
 
