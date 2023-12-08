@@ -24,7 +24,7 @@ namespace University.Api.Controllers.Teachers
             return Ok(result);
         }
         [HttpPost]
-        public async ValueTask<IActionResult> CreateTechar(CreateTeacherCommand teacher)
+        public async ValueTask<IActionResult> CreateTechar([FromForm]CreateTeacherCommand teacher)
         {
             await _mediator.Send(teacher);
             return Ok("Created Teacher");
@@ -41,7 +41,7 @@ namespace University.Api.Controllers.Teachers
 
         }
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateTeacher(UpdateTeacherCommand command)
+        public async ValueTask<IActionResult> UpdateTeacher([FromForm] UpdateTeacherCommand command)
         {
             await _mediator.Send(command);
             return Ok("Teacher Updated");
