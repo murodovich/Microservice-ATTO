@@ -22,13 +22,10 @@ namespace University.Api.Controllers.Subjects
             return Ok(res);
         }
         [HttpPost]
-        public async ValueTask<IActionResult> CreateSubject(CreateSubjectCommand createSubject)
+        public async ValueTask<IActionResult> CreateSubject([FromForm]CreateSubjectCommand createSubject)
         {
-            var res = new CreateSubjectCommand()
-            {
-                SubjectName = createSubject.SubjectName,
-            };
-            await _mediator.Send(res);
+            
+            await _mediator.Send(createSubject);
             return Ok("Created Subject");
         }
         [HttpGet]
@@ -42,14 +39,9 @@ namespace University.Api.Controllers.Subjects
             return Ok(result);
         }
         [HttpPut]
-        public async ValueTask<IActionResult> Update(UpdateSubjectCommand updateSubject)
+        public async ValueTask<IActionResult> Update([FromForm]UpdateSubjectCommand updateSubject)
         {
-            var res = new UpdateSubjectCommand()
-            {
-                SubjectId = updateSubject.SubjectId,
-                SubjectName = updateSubject.SubjectName,
-            };
-            await _mediator.Send(res);
+            await _mediator.Send(updateSubject);
             return Ok("Updated");
         }
         [HttpDelete]
