@@ -22,29 +22,16 @@ namespace University.Api.Controllers.Lessons
             return Ok(result);
         }
         [HttpPost]
-        public async ValueTask<IActionResult> CreateLesson(CreateLessonCommand command)
+        public async ValueTask<IActionResult> CreateLesson([FromForm] CreateLessonCommand command)
         {
-            var result = new CreateLessonCommand()
-            {
-                LessonName = command.LessonName,
-                Date = command.Date,
-                CourseId = command.CourseId
-
-            };
-
-            await _mediator.Send(result);
+            await _mediator.Send(command);
             return Ok("Created Lesson");
         }
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateLesson(UpdateLessonCommand command)
+        public async ValueTask<IActionResult> UpdateLesson([FromForm] UpdateLessonCommand command)
         {
-            var result = new UpdateLessonCommand()
-            {
-                LessonName = command.LessonName,
-                Date = command.Date,
-                CourseId = command.CourseId
-            };
-            await _mediator.Send(result);
+            
+            await _mediator.Send(command);
             return Ok("Updated Lesson");
         }
         [HttpGet]
