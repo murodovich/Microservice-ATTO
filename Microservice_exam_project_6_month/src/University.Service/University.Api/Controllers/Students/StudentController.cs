@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using University.Application.UseCases.Students.Commands;
 using University.Application.UseCases.Students.Queries;
 
@@ -10,14 +11,16 @@ namespace University.Api.Controllers.Students
     public class StudentController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly IMemoryCache _memorycashe;
 
-        public StudentController(IMediator mediator)
+        public StudentController(IMediator mediator, IMemoryCache memorycashe = null)
         {
             _mediator = mediator;
+            _memorycashe = memorycashe;
         }
 
         [HttpPost]
-        public async ValueTask<IActionResult> CreateStudent(CreateStudentCommand command)
+        public async ValueTask<IActionResult> CreateStudent([FromForm] CreateStudentCommand command)
         {
             await _mediator.Send(command);
             return Ok("Created");
@@ -31,7 +34,7 @@ namespace University.Api.Controllers.Students
         }
 
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateStudent(UpdateStudentCommand command)
+        public async ValueTask<IActionResult> UpdateStudent([FromForm] UpdateStudentCommand command)
         {
             await _mediator.Send(command);
             return Ok("Updated");
