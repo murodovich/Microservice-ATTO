@@ -29,7 +29,7 @@ namespace University.Api.Controllers.Dedlines
             return Ok(res);
         }
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateDedline(UpdateDedlineComman updateDedlineComman)
+        public async ValueTask<IActionResult> UpdateDedline([FromForm]UpdateDedlineComman updateDedlineComman)
         {
             await _mediator.Send(updateDedlineComman);
             return Ok("Update Dedline");
