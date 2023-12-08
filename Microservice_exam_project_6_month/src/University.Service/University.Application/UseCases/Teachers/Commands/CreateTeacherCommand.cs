@@ -18,6 +18,5 @@ namespace University.Application.UseCases.Teachers.Commands
         public Role Role { get; set; }
         public string Address { get; set; }
 
-        public DateTime CreatedAt { get; set; } 
     }
 }
