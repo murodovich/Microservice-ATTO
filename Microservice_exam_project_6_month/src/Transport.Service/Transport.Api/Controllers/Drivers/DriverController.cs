@@ -23,7 +23,7 @@ namespace Transport.Api.Controllers.Drivers
         }
 
         [HttpPost]
-        public async ValueTask<IActionResult> CreateDriver(CreateDriverCommand command)
+        public async ValueTask<IActionResult> CreateDriver([FromForm] CreateDriverCommand command)
         {
             var result = await _mediator.Send(command);
             return Ok("Created Driver");
@@ -35,7 +35,7 @@ namespace Transport.Api.Controllers.Drivers
             return Ok(result);
         }
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateDriver(UpdateDriverCommand command)
+        public async ValueTask<IActionResult> UpdateDriver([FromForm]UpdateDriverCommand command)
         {
             await _mediator.Send(command);
             return Ok("Updated Driver");
