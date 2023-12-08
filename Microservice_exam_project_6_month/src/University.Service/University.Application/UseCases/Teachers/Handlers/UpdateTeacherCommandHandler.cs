@@ -28,7 +28,7 @@ namespace University.Application.UseCases.Teachers.Handlers
             teacher.Gender = request.Gender;
             teacher.Direction = request.Direction;
             teacher.Role = request.Role;
-            teacher.UpdatedAt = request.UpdatedAt;
+            teacher.UpdatedAt = DateTime.UtcNow;
             teacher.UserName = request.UserName;
             teacher.Password = Hash512.ComputeSHA512HashFromString(request.Password);
 
