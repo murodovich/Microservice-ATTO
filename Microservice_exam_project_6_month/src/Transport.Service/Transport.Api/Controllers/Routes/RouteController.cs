@@ -23,7 +23,7 @@ namespace Transport.Api.Controllers.Routes
             return Ok(res);
         }
         [HttpPost]
-        public async ValueTask<IActionResult> CreateRoute(CreateRouteCommand command)
+        public async ValueTask<IActionResult> CreateRoute([FromForm] CreateRouteCommand command)
         {
             await _mediator.Send(command);
             return Ok("Created Route");
@@ -39,7 +39,7 @@ namespace Transport.Api.Controllers.Routes
             return Ok(result);
         }
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateRoute(UpdateRouteCommand command)
+        public async ValueTask<IActionResult> UpdateRoute([FromForm] UpdateRouteCommand command)
         {
             await _mediator.Send(command);
             return Ok("Updated Route");
