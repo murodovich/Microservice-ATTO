@@ -23,7 +23,7 @@ namespace University.Api.Controllers.CourseGroup
             return Ok(res);
         }
         [HttpPost]
-        public async ValueTask<IActionResult> CreateCourseGroup(CreateCourseGroupCommand command)
+        public async ValueTask<IActionResult> CreateCourseGroup([FromForm] CreateCourseGroupCommand command)
         {
             var res = new CreateCourseGroupCommand()
             {
@@ -44,7 +44,7 @@ namespace University.Api.Controllers.CourseGroup
             return Ok(result);
         }
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateCourseGroup(UpdateCourseGroupCommand command)
+        public async ValueTask<IActionResult> UpdateCourseGroup([FromForm] UpdateCourseGroupCommand command)
         {
             var res = new UpdateCourseGroupCommand()
             {
