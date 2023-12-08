@@ -5,7 +5,8 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "school.api": "StartDebugging",
-        "university.api": "StartDebugging"
+        "university.api": "StartDebugging",
+        "microservice.getaway.api": "StartDebugging"
       }
     }
   }
