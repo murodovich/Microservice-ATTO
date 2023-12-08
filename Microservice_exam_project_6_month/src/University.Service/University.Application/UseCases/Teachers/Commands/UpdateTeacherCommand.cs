@@ -17,7 +17,6 @@ namespace University.Application.UseCases.Teachers.Commands
         public Gender Gender { get; set; }
         public Role Role { get; set; }
         public string Address { get; set; }
-        public DateTime UpdatedAt { get; set; } 
 
     }
 }
