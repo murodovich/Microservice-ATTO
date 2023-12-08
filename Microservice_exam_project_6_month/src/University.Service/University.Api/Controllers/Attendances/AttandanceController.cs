@@ -22,7 +22,7 @@ namespace University.Api.Controllers.Attendances
             return Ok(res);
         }
         [HttpPost]
-        public async ValueTask<IActionResult> CreateAttendance(CreateAttendanceCommand command)
+        public async ValueTask<IActionResult> CreateAttendance([FromForm]CreateAttendanceCommand command)
         {
             var result = new CreateAttendanceCommand()
             {
@@ -45,7 +45,7 @@ namespace University.Api.Controllers.Attendances
             return Ok(result);
         }
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateAttandance(UpdateAttendanceCommand command)
+        public async ValueTask<IActionResult> UpdateAttandance([FromForm]UpdateAttendanceCommand command)
         {
             var result = new UpdateAttendanceCommand()
             {
