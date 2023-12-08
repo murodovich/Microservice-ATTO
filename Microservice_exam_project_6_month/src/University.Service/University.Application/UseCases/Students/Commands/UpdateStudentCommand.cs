@@ -21,7 +21,6 @@ namespace University.Application.UseCases.Students.Commands
         public int Age { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
-        public DateTime UpdatedAt { get; set; }
         public int GroupId { get; set; }
     }
 }
