@@ -23,7 +23,7 @@ namespace Transport.Api.Controllers.Users
 
         }
         [HttpPost]
-        public async ValueTask<IActionResult> CreateTransport(CreateUserCommand command)
+        public async ValueTask<IActionResult> CreateTransport([FromForm] CreateUserCommand command)
         {
             var result = await _mediator.Send(command);
             return Ok(result);
@@ -35,7 +35,7 @@ namespace Transport.Api.Controllers.Users
             return Ok(result);
         }
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateUser(UpdateUserCommand command)
+        public async ValueTask<IActionResult> UpdateUser([FromForm] UpdateUserCommand command)
         {
             await _mediator.Send(command);
             return Ok("Updated User");
