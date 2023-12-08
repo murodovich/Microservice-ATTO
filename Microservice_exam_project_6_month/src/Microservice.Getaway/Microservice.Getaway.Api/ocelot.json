@@ -1,0 +1,46 @@
+{
+
+  "Routes": [
+    {
+      //school/Student/GetAll
+      "DownstreamPathTemplate": "/api/Student/GetAllStudentSchool",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "school.api",
+          "Port": 52700
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Student/GetAllStudentSchool",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      //school/Teacher/GetAll
+      "DownstreamPathTemplate": "/api/Student/GetAllStudentSchool",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "school.api",
+          "Port": 52700
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Student/GetAllStudentSchool",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      //University/Student/GetAll
+
+      "DownstreamPathTemplate": "/api/Student/GetStudent",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "University.api",
+          "Port": 52700
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Student/GetStudent",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+
+  ]
+}
