@@ -31,7 +31,7 @@ namespace University.Application.UseCases.Students.Handlers
             student.Gender = request.Gender;
             student.GroupId = request.GroupId;
             student.Role = request.Role;
-            student.UpdatedAt = request.UpdatedAt;
+            student.UpdatedAt = DateTime.UtcNow;
             student.Password = Hash512.ComputeSHA512HashFromString(request.Password);
             student.UserName = request.UserName;
 
