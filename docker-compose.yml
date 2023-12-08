@@ -30,3 +30,10 @@ services:
       context: .
       dockerfile: Microservice_exam_project_6_month/src/University.Service/University.Api/Dockerfile
 
+
+  microservice.getaway.api:
+    image: ${DOCKER_REGISTRY-}microservicegetawayapi
+    build:
+      context: .
+      dockerfile: Microservice_exam_project_6_month/src/Microservice.Getaway/Microservice.Getaway.Api/Dockerfile
+
