@@ -23,7 +23,7 @@ namespace Transport.Api.Controllers.Scheldule
             return Ok(result);
         }
         [HttpPost]
-        public async ValueTask<IActionResult> CreateScheldule(CreateSchelduleCommand command)
+        public async ValueTask<IActionResult> CreateScheldule([FromForm] CreateSchelduleCommand command)
         {
             await _mediator.Send(command);
             return Ok("Created");
@@ -35,7 +35,7 @@ namespace Transport.Api.Controllers.Scheldule
             return Ok(result);
         }
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateScheldule(UpdateSchelduleCommand command)
+        public async ValueTask<IActionResult> UpdateScheldule([FromForm] UpdateSchelduleCommand command)
         {
             await _mediator.Send(command);
             return Ok("Updated");
