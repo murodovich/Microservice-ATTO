@@ -18,7 +18,7 @@ class Program
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-
+        builder.Services.AddMemoryCache();
 
         builder.Services.AddDbContext<ISchoolDbContext, SchoolDBContext>(options =>
         {
@@ -35,7 +35,7 @@ class Program
             app.UseSwaggerUI();
         }
 
-        app.UseHttpsRedirection();
+      //  app.UseHttpsRedirection();
 
         app.UseAuthorization();
 
