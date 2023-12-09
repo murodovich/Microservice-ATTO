@@ -9,6 +9,8 @@
 
 ## 🚇Jamoat Transport 
 
+## Projectni ishlatish uchun Docker Desktopni yoqvogan holda Docker composeni run qilinsa ishlaydi Dockerda faqat 80- port ishlaydi Httpda 
+
 ## University https://drawsql.app/teams/sarvar-4/diagrams/university
 
 
