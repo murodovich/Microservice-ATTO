@@ -9,7 +9,7 @@ namespace University.Infrastructure.Configuration.Teachers
     {
         public void Configure(EntityTypeBuilder<Teacher> builder)
         {
-            builder.ToTable("Teachers"); 
+            builder.ToTable("Teachers");
 
             builder.HasKey(t => t.TeacherId);
 
