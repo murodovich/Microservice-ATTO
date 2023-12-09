@@ -8,9 +8,9 @@ namespace University.Infrastructure.Configuration.Attendanceis
     {
         public void Configure(EntityTypeBuilder<Attendance> builder)
         {
-            builder.ToTable("Attendances"); 
+            builder.ToTable("Attendances");
 
-            builder.HasKey(a => a.AttendanceId); 
+            builder.HasKey(a => a.AttendanceId);
 
             builder.Property(a => a.LessonId)
                 .IsRequired();
