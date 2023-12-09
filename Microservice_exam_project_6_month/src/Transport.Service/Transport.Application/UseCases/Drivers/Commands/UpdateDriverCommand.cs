@@ -1,5 +1,4 @@
 ﻿using MediatR;
-
 namespace Transport.Application.UseCases.Drivers.Commands
 {
     public class UpdateDriverCommand : IRequest<bool>
