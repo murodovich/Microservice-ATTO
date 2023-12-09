@@ -1,6 +1,5 @@
 ﻿using Transport.Domain.Entities.Payments;
 using Transport.Domain.Enums;
-
 namespace Transport.Domain.Entities.Users
 {
     public class User
