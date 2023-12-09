@@ -2,10 +2,9 @@
 using Transport.Application.Absreactions;
 using Transport.Application.UseCases.Drivers.Commands;
 using Transport.Domain.Entities.Drivers;
-
 namespace Transport.Application.UseCases.Drivers.Handlers
 {
-    public class CreateDriverCommandHandler : IRequestHandler<CreateDriverCommand,bool>
+    public class CreateDriverCommandHandler : IRequestHandler<CreateDriverCommand, bool>
     {
         private readonly ITransportDBContext _dbContext;
 
