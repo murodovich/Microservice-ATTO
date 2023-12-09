@@ -8,9 +8,9 @@ namespace University.Infrastructure.Configuration.Groups
     {
         public void Configure(EntityTypeBuilder<Group> builder)
         {
-            builder.ToTable("Groups"); 
+            builder.ToTable("Groups");
 
-            builder.HasKey(g => g.GroupId); 
+            builder.HasKey(g => g.GroupId);
 
             builder.Property(g => g.Name)
                 .IsRequired()
