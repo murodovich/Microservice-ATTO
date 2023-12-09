@@ -1,9 +1,8 @@
-﻿
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 
 namespace University.Application.Interfaces
 {
-    public interface IFileService 
+    public interface IFileService
     {
         ValueTask<string> UploadImageAsync(IFormFile file);
         ValueTask<bool> DeleteImageAsync(string file);
