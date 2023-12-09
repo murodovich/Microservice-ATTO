@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-
 namespace Transport.Domain.Entities.Drivers
 {
     public class Driver
