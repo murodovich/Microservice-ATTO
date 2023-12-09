@@ -38,7 +38,7 @@ namespace University.Infrastructure.Configuration.Student
                 .IsRequired()
                 .HasMaxLength(50)
                 .IsUnicode(true);
-            var  phoneNumber = new Regex( @"^(\+998|\b998)([1-9][0-9]{9})$");
+            var phoneNumber = new Regex(@"^(\+998|\b998)([1-9][0-9]{9})$");
             builder.Property(x => x.Phone)
                 .IsRequired()
                 .HasMaxLength(50)
@@ -49,7 +49,7 @@ namespace University.Infrastructure.Configuration.Student
                 .IsRequired()
                 .HasMaxLength(50);
 
-                
+
 
 
 
