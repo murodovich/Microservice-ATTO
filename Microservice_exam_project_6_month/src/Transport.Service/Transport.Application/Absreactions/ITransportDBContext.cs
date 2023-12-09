@@ -4,7 +4,6 @@ using Transport.Domain.Entities.Payments;
 using Transport.Domain.Entities.Routeis;
 using Transport.Domain.Entities.Schedules;
 using Transport.Domain.Entities.Users;
-
 namespace Transport.Application.Absreactions
 {
     public interface ITransportDBContext
