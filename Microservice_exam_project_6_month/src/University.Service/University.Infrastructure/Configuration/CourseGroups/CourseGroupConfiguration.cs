@@ -18,7 +18,7 @@ namespace University.Infrastructure.Configuration.CourseGroups
             builder.Property(cg => cg.GroupId)
                 .IsRequired();
 
-           
+
 
             builder.HasOne(cg => cg.Group)
                 .WithMany(g => g.Courses)
