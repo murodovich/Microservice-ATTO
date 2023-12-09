@@ -8,13 +8,13 @@ namespace University.Infrastructure.Configuration.Courses
     {
         public void Configure(EntityTypeBuilder<Course> builder)
         {
-            builder.ToTable("Courses"); 
+            builder.ToTable("Courses");
 
-            builder.HasKey(c => c.CourseId); 
+            builder.HasKey(c => c.CourseId);
 
             builder.Property(c => c.CourseName)
                 .IsRequired()
-                .HasMaxLength(255); 
+                .HasMaxLength(255);
 
             builder.Property(c => c.SubjectId)
                 .IsRequired();
