@@ -22,7 +22,7 @@ namespace Transport.Infrastructure.Configuration.Payments
                    .HasForeignKey(p => p.UserId)
                    .OnDelete(DeleteBehavior.Restrict);
 
-           
+
 
         }
     }

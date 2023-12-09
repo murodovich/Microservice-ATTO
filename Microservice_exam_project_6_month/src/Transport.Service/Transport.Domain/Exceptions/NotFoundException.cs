@@ -1,7 +1,5 @@
-﻿namespace Transport.Domain.Exceptions
+﻿namespace Transport.Domain.Exceptions;
+public class NotFoundException : Exception
 {
-    public class NotFoundException : Exception
-    {
-        public string TitleMessage { get; set; }
-    }
+    public string TitleMessage { get; set; }
 }

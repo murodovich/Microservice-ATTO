@@ -18,7 +18,7 @@ namespace Transport.Infrastructure.Configuration.Drivers
             builder.Property(d => d.LicenseNumber)
                 .IsRequired();
 
-            
+
         }
     }
 }

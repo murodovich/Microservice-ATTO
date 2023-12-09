@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Transport.Domain.Entities.Users;
-
 namespace Transport.Infrastructure.Configuration.Users
 {
     public class UserConfiguration : IEntityTypeConfiguration<User>
@@ -28,13 +27,13 @@ namespace Transport.Infrastructure.Configuration.Users
                 .IsRequired()
                 .HasMaxLength(255);
             builder.Property(u => u.PhoneNumber)
-                .HasMaxLength(15); 
+                .HasMaxLength(15);
             builder.Property(u => u.CreatedAt)
                 .IsRequired();
             builder.Property(u => u.UpdatedAt)
                 .IsRequired();
 
-            
+
             builder.Property(u => u.Role).HasConversion<string>();
 
             builder.HasMany(u => u.Payment)

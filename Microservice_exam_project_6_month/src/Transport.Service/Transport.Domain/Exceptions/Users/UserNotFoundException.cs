@@ -2,7 +2,7 @@
 {
     public class UserNotFoundException : NotFoundException
     {
-        public UserNotFoundException() 
+        public UserNotFoundException()
         {
             this.TitleMessage = "User Not Found!";
         }

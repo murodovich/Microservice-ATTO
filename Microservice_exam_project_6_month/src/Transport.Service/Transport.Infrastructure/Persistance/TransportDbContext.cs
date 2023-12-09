@@ -14,13 +14,13 @@ using Transport.Infrastructure.Configuration.Users;
 
 namespace Transport.Infrastructure.Persistance
 {
-    public class TransportDbContext : DbContext,ITransportDBContext
+    public class TransportDbContext : DbContext, ITransportDBContext
     {
-        public TransportDbContext(DbContextOptions<TransportDbContext> options) 
+        public TransportDbContext(DbContextOptions<TransportDbContext> options)
             : base(options)
         {
             Database.Migrate();
-            
+
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Route> routes { get; set; }
