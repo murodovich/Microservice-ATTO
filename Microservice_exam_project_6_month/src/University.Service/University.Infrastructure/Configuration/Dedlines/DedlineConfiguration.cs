@@ -8,9 +8,9 @@ namespace University.Infrastructure.Configuration.Dedlines
     {
         public void Configure(EntityTypeBuilder<Dedline> builder)
         {
-            builder.ToTable("Dedlines"); 
+            builder.ToTable("Dedlines");
 
-            builder.HasKey(d => d.DedlineId); 
+            builder.HasKey(d => d.DedlineId);
 
             builder.Property(d => d.ExpiredDate)
                 .IsRequired();
@@ -20,7 +20,7 @@ namespace University.Infrastructure.Configuration.Dedlines
 
             builder.Property(d => d.StartDate)
                 .IsRequired()
-                .HasDefaultValueSql("GETDATE()"); 
+                .HasDefaultValueSql("GETDATE()");
 
             builder.Property(d => d.FilePage)
                 .IsRequired();
