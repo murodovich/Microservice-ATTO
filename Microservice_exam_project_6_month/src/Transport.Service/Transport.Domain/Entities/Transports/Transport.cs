@@ -1,7 +1,6 @@
 ﻿using Transport.Domain.Entities.Drivers;
 using Transport.Domain.Entities.Payments;
 using Transport.Domain.Entities.Schedules;
-
 namespace Transport.Domain.Entities.Transports
 {
     public class Transport
@@ -14,6 +13,6 @@ namespace Transport.Domain.Entities.Transports
         public ICollection<Driver> drivers { get; set; }
         public ICollection<Schedule> schedules { get; set; }
 
-        
+
     }
 }
