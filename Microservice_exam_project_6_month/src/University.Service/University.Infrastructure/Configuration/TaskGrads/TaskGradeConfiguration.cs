@@ -8,11 +8,11 @@ namespace University.Infrastructure.Configuration.TaskGrads
     {
         public void Configure(EntityTypeBuilder<TaskGrade> builder)
         {
-            builder.ToTable("TaskGrades"); 
+            builder.ToTable("TaskGrades");
 
-            builder.HasKey(t => t.TaskGradeId); 
+            builder.HasKey(t => t.TaskGradeId);
 
-        
+
             builder.Property(t => t.FilePath)
             .IsRequired();
 
