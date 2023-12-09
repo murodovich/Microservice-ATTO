@@ -16,7 +16,7 @@ namespace University.Infrastructure.Persitance
 {
     public class UniversitetDBContext : DbContext, IUniversityDBContext
     {
-        public UniversitetDBContext(DbContextOptions<UniversitetDBContext> options) : base(options) 
+        public UniversitetDBContext(DbContextOptions<UniversitetDBContext> options) : base(options)
         {
             Database.Migrate();
         }
