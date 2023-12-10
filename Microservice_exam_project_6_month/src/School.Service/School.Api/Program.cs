@@ -1,4 +1,4 @@
-    using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using School.Application;
 using School.Application.Absreactions;
 using School.Infrastructure;
