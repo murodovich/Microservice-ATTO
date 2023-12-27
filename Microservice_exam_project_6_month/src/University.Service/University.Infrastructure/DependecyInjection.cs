@@ -12,7 +12,7 @@ namespace University.Infrastructure
         {
             services.AddDbContext<IUniversityDBContext, UniversitetDBContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+                options.UseSqlServer(configuration.GetConnectionString("Defoult"));
             });
 
             return services;
