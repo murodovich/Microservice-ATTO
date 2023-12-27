@@ -14,7 +14,6 @@
       "UpstreamHttpMethod": [ "Get" ]
     },
     {
-      //school/Teacher/GetAll
       "DownstreamPathTemplate": "/api/Student/GetAllStudentSchool",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -27,8 +26,6 @@
       "UpstreamHttpMethod": [ "Get" ]
     },
     {
-      //University/Student/GetAll
-
       "DownstreamPathTemplate": "/api/Student/GetStudent",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [

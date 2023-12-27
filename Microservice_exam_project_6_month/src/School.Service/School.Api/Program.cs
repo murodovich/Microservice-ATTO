@@ -3,7 +3,6 @@ using School.Application;
 using School.Application.Absreactions;
 using School.Infrastructure;
 using School.Infrastructure.Persistance;
-
 class Program
 {
     public static void Main(string[] args)
@@ -13,7 +12,7 @@ class Program
 
         builder.Services.AddInfrastructure(builder.Configuration);
         builder.Services.AddApplication();
-      
+
 
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
@@ -35,7 +34,7 @@ class Program
             app.UseSwaggerUI();
         }
 
-      //  app.UseHttpsRedirection();
+        //  app.UseHttpsRedirection();
 
         app.UseAuthorization();
 
