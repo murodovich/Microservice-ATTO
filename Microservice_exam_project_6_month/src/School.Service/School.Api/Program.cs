@@ -23,9 +23,6 @@ class Program
         {
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefoultConnectionstring"));
         });
-
-
-
         var app = builder.Build();
 
         if (app.Environment.IsDevelopment())
