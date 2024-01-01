@@ -4,7 +4,6 @@ using School.Domain.Entities.StudentCourses;
 using School.Domain.Entities.Students;
 using School.Domain.Entities.Subjects;
 using School.Domain.Entities.Teachers;
-
 namespace School.Application.Absreactions
 {
     public interface ISchoolDbContext
